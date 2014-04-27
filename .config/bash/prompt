@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+
+export PS1="\
+\[$(tput setaf 2)\]┌─╼ \[$(tput setaf 7)\]\w\n\
+\[$(tput setaf 2)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 2)\]└────╼\
+\"; else echo \"\[$(tput setaf 2)\]└╼\"; fi) \[$(tput setaf 7)\]\
+"
+

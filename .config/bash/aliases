@@ -1,0 +1,13 @@
+#!/bin/env bash
+
+
+alias ls='ls -F --color=auto'
+alias grep='grep -i -n --color=auto'
+alias shred='shred -v -n 6 -z -u'
+alias rm='rm -Iv'
+alias mv='mv -iv'
+
+alias clear='printf "\ec"'
+alias screenfetch='clear && screenfetch'
+alias connexion='$HOME/Scripts/internet.sh'
+alias sweep='find ~ -type f \( -name '*.swp' -o -name 'wget.log' -o -name 'foobar*' -o -name '*~' -o -name '.netrwhist' \) -delete'

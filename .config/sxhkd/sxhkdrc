@@ -1,0 +1,29 @@
+alt + Return
+    urxvtc
+
+super + v
+    $HOME/Scripts/dmenu_run.sh
+
+alt + x
+    xdotool search --onlyvisible --classname Scratchpad windowunmap || xdotool search --classname Scratchpad windowmap || urxvtc --geometry 109x31 -name Scratchpad -title Scratchpad -e screen &
+
+alt + y
+    xdotool search --onlyvisible --classname Pentadactyl windowunmap || xdotool search --classname Pentadactyl windowmap || urxvtc --geometry 109x31 -name Pentadactyl -title Pentadactyl -e vim --servername pentadactyl
+
+Print
+    import -w root $HOME/Pictures/bureau-$(date +"%F").jpg
+
+XF86AudioPlay
+    ncmpcpp toggle
+XF86AudioPrev
+    ncmpcpp prev
+XF86AudioNext
+    ncmpcpp next
+XF86AudioStop
+    ncmpcpp stop
+XF86AudioMute
+    amixer set Master toggle
+XF86AudioLowerVolume
+    amixer set Master 5%-
+XF86AudioRaiseVolume
+    amixer set Master 5%+

@@ -1,0 +1,13 @@
+"1.1
+
+loadplugins '\.(js|penta)$'
+group user
+highlight CmdCmdLine background-color: #151515; font-family: termsynu; font-family: 11pt;
+highlight -link=FontFixed CmdLine background-color: #151515; color: #6F6F6F; font-family: termsynu; font-size: 11pt;
+highlight Normal color:  #6F6F6F; background-color: #151515; font-family: termsynu; font-family: 11pt;
+highlight -link=FontFixed StatusLine color: #6F6F6F; background-color:  #151515; font-family: nu; font-size: 11pt;
+set editor='vim --servername pentadactyl --remote-wait'
+set guioptions=Cs
+set titlestring=Firefox
+
+" vim: set ft=pentadactyl:
