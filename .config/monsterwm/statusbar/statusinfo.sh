@@ -1,35 +1,6 @@
 #!/bin/sh
 
-# Chemin vers les icônes...
-BOULE="$HOME/.config/monsterwm/icons/"
-
-# dzen2 
-COULEUR="-fg #dddddd -bg #151515"
-TAILLE="-w 700 -h 18"
-POSITION="-x 700 -y 0"
-TEXTE_POSIT="-ta right"
-POLICE="-fn -*-termsyn-medium-*-normal-*-11-*-*-*-*-*-*-*"
-
-# gdbar 
-BAR_STYLE="-w 50 -h 1 -nonl"
-BAR_FG_COULEUR="-fg #d9d9d9"
-BAR_BG_COULEUR="-bg #555555"
-
-# Couleurs
-ROUGE="#CD749C"
-VERT="#9C75DD"
-JAUNE="#9898AE"
-BLEU="#5786BC"
-MAGENTA="#625566"
-
-# Icônes
-MUSIQUE_PLAY="$BOULE/note.xbm"
-MUSIQUE_PAUSE="$BOULE/pause.xbm"
-VOLUME_ON="$BOULE/spkr_01.xbm"
-VOLUME_MUTE="$BOULE/spkr_02.xbm"
-CPU="$BOULE/cpu.xbm"
-MEMOIRE="$BOULE/mem.xbm"
-HEURE="$BOULE/clock.xbm"
+source /home/knakis/.config/monsterwm/statusbar/config.sh
 
 SEP="^fg(#2a2a2a) | ^fg()"
 
@@ -90,10 +61,10 @@ heure()
 
 # Boucle de lancement...
 while :; do
-  echo -n "$(musique)$SEP"
+  echo -n "^ca(1, $DIR/sc.sh $DIR/music.sh)$(musique)^ca()$SEP"
   echo -n "$(volume)$SEP"
-  echo -n "$(icon $JAUNE $CPU) $(cpu | awk '{print $2}')$SEP"
-  echo -n "$(icon $MAGENTA $MEMOIRE) $(memoire | awk '{print $2}')$SEP"
-  echo "$(icon $VERT $HEURE) $(heure) "
+  echo -n "^ca(1, $DIR/sc.sh $DIR/cpu.sh)$(icon $JAUNE $CPU) $(cpu | awk '{print $2}')^ca()$SEP"
+  echo -n "^ca(1, $DIR/sc.sh $DIR/mem.sh)$(icon $MAGENTA $MEMOIRE) $(memoire | awk '{print $2}')^ca()$SEP"
+  echo "^ca(1, $DIR/sc.sh $DIR/cal.sh)$(icon $VERT $HEURE) $(heure)^ca() "
   sleep "0.5"
 done | dzen2 $COULEUR $TEXTE_POSIT $TAILLE $POSITION $POLICE
